@@ -12,7 +12,6 @@ import Paper from '@material-ui/core/Paper';
 const EpisodesList = props => {
 
     const { episodes } = props;
-    console.log("episodes", episodes)
 
     return (
         <Paper>

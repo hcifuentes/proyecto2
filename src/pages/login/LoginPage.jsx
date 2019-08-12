@@ -1,9 +1,10 @@
 import React from 'react';
+import LoginForm from '../../components/login/LoginForm';
 
 const LoginPage = props => {
     return (
         <div>
-            Formulario de login
+            <LoginForm />
         </div>
     )
 }

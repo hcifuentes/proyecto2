@@ -26,7 +26,6 @@ const UsersList = props => {
                     {
                         users.map((user) => <UserRow key={user.id} user={user} />)
                     }
-
                  </TableBody>
             </Table>
         </Paper>

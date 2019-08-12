@@ -1,6 +1,23 @@
 {
   "login": {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+    "id": 2,
+    "name": "Ana",
+    "email": "anita@gmail.com",
+    "favoriteEpisodes": [
+      "5",
+      "6",
+      "3"
+    ],
+    "episodesWatched": [
+      "9",
+      "2",
+      "8"
+    ],
+    "favoriteCharacters": [
+      "11",
+      "12",
+      "23"
+    ]
   },
   "users": [
     {
@@ -62,6 +79,14 @@
         "5",
         "1"
       ]
+    },
+    {
+      "id": 4,
+      "name": "",
+      "email": "anita@gmail.com",
+      "favoriteEpisodes": [],
+      "episodesWatched": [],
+      "favoriteCharacters": []
     }
   ]
 }

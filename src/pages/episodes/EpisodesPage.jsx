@@ -5,7 +5,6 @@ import EpisodesList from './../../components/episodes/EpisodesList'
 import { getEpisodesAction } from './../../store/episodes/actions'
 
 const EpisodesPage = props => {
-    console.log("props" , props)
     const { episodes, episodesPrevPage, episodesNextPage, getEpisodesComponent } = props;
     const prevPage = () => props.getEpisodesComponent(episodesPrevPage);
     const nextPage = () => props.getEpisodesComponent(episodesNextPage);
@@ -26,7 +25,7 @@ const EpisodesPage = props => {
 }
 
 const mapStateToProps = state => {
-    console.log(state)
+    console.log(state);
     return ({
     episodes: state.episodesReducer.episodes,
     episodesLoading: state.episodesReducer.episodesLoading,

@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React  from 'react';
 import CharacterGridTile from './CharacterGridTile';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
@@ -23,12 +22,17 @@ const useStyles = makeStyles(theme => ({
 
 const CharactersGridList = props => {
 
-    const { characters } = props;
+    const { characters, activeUser, removeFavorite, addFavorite } = props;
 
     return (
         <GridList cellHeight={90} className={useStyles.gridList}>
             {characters.map(character => (
-                <CharacterGridTile key={character.id} character={character} />
+                <CharacterGridTile 
+                    key={character.id} 
+                    character={character} 
+                    activeUser={activeUser}
+                    removeFavorite={removeFavorite} 
+                    addFavorite={addFavorite} />
             ))}
         </GridList>
     );

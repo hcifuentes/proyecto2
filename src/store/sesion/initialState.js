@@ -1,5 +1,7 @@
+import { loggedUser } from './../../services/loginService';
+
 export const initialState = {
-    activeUser: null,
+    activeUser: loggedUser(),
     activeUserLoading: false,
     activeUserError: false
 }

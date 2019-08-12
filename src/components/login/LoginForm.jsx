@@ -11,7 +11,7 @@ const LoginForm = props => {
     const [ redirect, setRedirect ] = useState(isLogged());
     const { activeUser, activeUserError, activeUserLoading, loginComponent } = props;
     console.log(loginComponent);
-    
+
     useEffect(() => {
         if(activeUser && isLogged() ) {
             setRedirect(true);
@@ -19,6 +19,7 @@ const LoginForm = props => {
     }, [activeUser])
 
     if(redirect) {
+
         return ( <Redirect from='/login' to='/users' />) 
     }
 
@@ -58,7 +59,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    loginComponent: payload => dispatch(loginAction(payload))
+    loginComponent: payload => dispatch(loginAction(payload)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

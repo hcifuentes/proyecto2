@@ -2,3 +2,11 @@
 export const GET_USERS_SUCCESS = 'GET_USERS_SUCCESS';
 export const GET_USERS_INIT = 'GET_USERS_INIT';
 export const GET_USERS_ERROR = 'GET_USERS_ERROR';
+
+export const POST_USER_SUCCESS = 'POST_USER_SUCCESS';
+export const POST_USER_INIT = 'POST_USER_INIT';
+export const POST_USER_ERROR = 'POST_USER_ERROR';
+
+export const PUT_USER_SUCCESS = 'PUT_USER_SUCCESS';
+export const PUT_USER_INIT = 'PUT_USER_INIT';
+export const PUT_USER_ERROR = 'PUT_USER_ERROR';

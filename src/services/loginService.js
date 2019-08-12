@@ -27,5 +27,11 @@ export const loginUser = user => {
 }
 
 export const loggedUser = () => {
-    return JSON.parse(localStorage.getItem("activeUser"));
+    const userActiveStr = localStorage.getItem("activeUser");
+    console.log("el ususario", userActiveStr)
+    if(userActiveStr !== null ){
+        return JSON.parse(userActiveStr);
+    }
+    return null;
+    
 }

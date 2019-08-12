@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // import Character from './../../models/character';
 import IconButton from '@material-ui/core/IconButton';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { makeStyles } from '@material-ui/core/styles';
-import InfoIcon from '@material-ui/icons/Info';
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -25,25 +25,36 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const CharacterGridTile = props => {
-    const { character } = props;
+    const { character, removeFavorite, addFavorite, activeUser } = props;
+
+    const makeButton = character => {
+        if (activeUser.favoriteCharacters.indexOf(character.id + '') > -1) {
+            return <IconButton aria-label={`info about ${character.name}`} className={useStyles.icon} onClick={() => removeFavorite(character.id)}>
+                SACA
+                    </IconButton>
+        } else {
+            return <IconButton aria-label={`info about ${character.name}`} className={useStyles.icon} onClick={() => addFavorite(character.id)}>
+                PONE
+                    </IconButton>
+        }
+    }
 
     return (
         <GridListTile key={character.id}
-        style={{ height: 'auto' }}>
+            style={{ height: 'auto' }}>
             <img src={character.image} alt={character.name} />
             <ListSubheader component="div">sub header</ListSubheader>
             <GridListTileBar
-                
                 title={character.name}
                 subtitle={<span>by: {character.species}</span>}
                 actionIcon={
-                    <IconButton aria-label={`info about ${character.name}`} className={useStyles.icon}>
-                        <InfoIcon />
-                    </IconButton>
+                    makeButton(character)
                 }
             />
         </GridListTile>
     );
+
 }
+
 
 export default CharacterGridTile

@@ -1,5 +1,7 @@
 import { initialState } from "./initialState";
-import { GET_USERS_INIT, GET_USERS_SUCCESS, GET_USERS_ERROR } from "./consts";
+import { GET_USERS_INIT, GET_USERS_SUCCESS, GET_USERS_ERROR,
+         POST_USER_INIT, POST_USER_SUCCESS, POST_USER_ERROR, 
+         PUT_USER_INIT, PUT_USER_SUCCESS, PUT_USER_ERROR } from "./consts";
 
 export default function reducer(state = initialState, action) {
     switch(action.type) {
@@ -17,6 +19,51 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 usersLoading: false,
                 usersError: true
+            }
+        }
+
+        case POST_USER_INIT: { return { ...state, postUserLoading: true}}
+        case POST_USER_SUCCESS: {
+            return {
+                ...state,
+                users: state.users.concat(action.payload),
+                characters: state.characters,
+                episodes: state.episodes,
+                postUserLoading: false
+            }
+        }
+
+        case POST_USER_ERROR: {
+            return {
+                ...state,
+                postUserLoading: false,
+                postUserError: true
+            }
+        }
+
+        case PUT_USER_INIT: { return { ...state, putUserLoading: true}}
+        case PUT_USER_SUCCESS: {
+            return {
+                ...state,
+                users: state.users.map(user => {
+                    if(user.id === action.payload.id) {
+                        return action.payload;
+                    }
+                    return user;
+                }),
+                characters: state.characters.map(character => {
+                    return character;
+                }),
+                episodes: state.episodes,
+                putUserLoading: false
+            }
+        }
+
+        case PUT_USER_ERROR: {
+            return {
+                ...state,
+                putUserLoading: false,
+                putUserError: true
             }
         }
 

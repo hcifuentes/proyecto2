@@ -1,28 +1,43 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import Container from '@material-ui/core/Container';
-import Character from '../../models/character';
 import CharactersGridList from '../../components/characters/CharactersGridList';
+import { getCharactersAction } from './../../store/characters/actions';
 
 const CharactersPage = props => {
-    const char = new Character();
-    char.name = 'El nombre';
-    char.species = 'La especia';
-    char.gender = 'el genero';
-    char.id = 1;
-    char.image = 'https://rickandmortyapi.com/api/character/avatar/1.jpeg';
+    
+    const { characters, charactersPrevPage, charactersNextPage, getCharactersComponent } = props;
+    const prevPage = () => props.getCharactersComponent(charactersPrevPage);
+    const nextPage = () => props.getCharactersComponent(charactersNextPage);
+    
 
-    const chars = [];
-    chars.push(char);
-    chars.push(char);
-    chars.push(char);
-    chars.push(char);
-    chars.push(char);
+    useEffect(() => {
+        getCharactersComponent();
+    },[getCharactersComponent]);
+
+    
 
     return ( 
-        <Container maxWidth="false">
-            <CharactersGridList characters={chars}/>
+        <Container maxWidth="xl">
+            <button onClick={prevPage}>Anterior</button>
+            <button onClick={nextPage}>Siguiente</button>
+            <CharactersGridList characters={characters}/>
         </Container>
     )
 }
 
-export default CharactersPage;
+const mapStateToProps = state => ({
+    characters: state.charactersReducer.characters,
+    charactersLoading: state.charactersReducer.charactersLoading,
+    charactersError: state.charactersReducer.charactersError,
+    charactersCount: state.charactersReducer.charactersCount,
+    charactersPages: state.charactersReducer.charactersPages,
+    charactersNextPage: state.charactersReducer.charactersNextPage,
+    charactersPrevPage: state.charactersReducer.charactersPrevPage
+    });
+
+const mapDispatchToProps = dispatch => ({
+    getCharactersComponent: payload => dispatch(getCharactersAction(payload))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CharactersPage);

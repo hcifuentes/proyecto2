@@ -28,7 +28,7 @@ const CharactersGridList = props => {
     return (
         <GridList cellHeight={90} className={useStyles.gridList}>
             {characters.map(character => (
-                <CharacterGridTile character={character} />
+                <CharacterGridTile key={character.id} character={character} />
             ))}
         </GridList>
     );

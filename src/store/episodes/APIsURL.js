@@ -1,0 +1,1 @@
+export const GET_EPISODES_API_URL = 'https://rickandmortyapi.com/api/episode';

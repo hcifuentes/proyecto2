@@ -8,6 +8,7 @@ import SignUpPage from '../pages/signUp/SignUpPage';
 import { isLogged } from './../services/loginService';
 import LoggedInTemplate from './../templates/LoggedInTemplate';
 import GuestTemplate from './../templates/GuestTemplate';
+import EpisodesPage from '../pages/episodes/EpisodesPage';
 
 const Routes = props => {
     const isLoggedIn = isLogged();
@@ -15,6 +16,8 @@ const Routes = props => {
     return (
         <Router>
             <Switch>
+                <PrivateRouter exact path='/episodes' template={LoggedInTemplate} component={EpisodesPage} isLoggedIn={isLoggedIn}/>
+                <PrivateRouter exact path='/episodes' template={LoggedInTemplate} component={EpisodesPage} isLoggedIn={isLoggedIn}/>
                 <PrivateRouter exact path='/characters' template={LoggedInTemplate} component={CharactersPage} isLoggedIn={isLoggedIn}/>
                 <GuestRouter exact path='/login' template={GuestTemplate} component={LoginPage} />
                 <GuestRouter exact path='/signUp' template={GuestTemplate} component={SignUpPage} />

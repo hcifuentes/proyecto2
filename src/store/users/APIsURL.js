@@ -1,0 +1,1 @@
+export const GET_USERS_API_URL = 'http://localhost:3000/users';

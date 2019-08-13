@@ -17,12 +17,11 @@ export const getUsersAction = url => {
     }
 }
 
-export const updateFavorites = user => {
+export const updateFavoritesAction = user => {
     console.log("Update user", user);
 
     return dispatch => {
         dispatch({type: PUT_USER_INIT});
-        console.log("999999999999999999999999999999", "putuse")
         putUser(GET_USERS_API_URL + '/'+ user.id, user)
         .then( response => {
             loginUser(user);
@@ -34,14 +33,15 @@ export const updateFavorites = user => {
     }
 }
 
-export const postFavorites = user => {
+export const createUserAction = user => {
     return dispatch => {
         dispatch({type: POST_USER_INIT});
-        postUser(GET_USERS_API_URL  + '/'+ user.id, user)
+        postUser(GET_USERS_API_URL, user)
         .then( response => {
             dispatch({type: POST_USER_SUCCESS , payload: user});
         })
         .catch( error => {
+            console.log("error");
             dispatch({type: POST_USER_ERROR});
         })
     }

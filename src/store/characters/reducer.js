@@ -1,14 +1,22 @@
 import { initialState } from "./initialState";
-import { GET_CHARACTERS_INIT, GET_CHARACTERS_SUCCESS, GET_CHARACTERS_ERROR } from "./consts";
+import { GET_CHARACTERS_INIT, GET_CHARACTERS_SUCCESS, GET_CHARACTERS_ERROR, RELOAD_CHARACTERS } from "./consts";
 
 export default function reducer(state = initialState, action) {
     switch(action.type) {
+        case RELOAD_CHARACTERS: {
+            return {
+                ...state,
+                characters: state.characters.filter(item => {
+                    if(item) return item;
+                })
+            }
+        }
+
         case GET_CHARACTERS_INIT : {
-            const obj = {
+            return {
                 ...state,
                 charactersLoading: true
             }
-            return obj;
         }
 
         case GET_CHARACTERS_SUCCESS : {
@@ -19,7 +27,8 @@ export default function reducer(state = initialState, action) {
                 charactersCount: action.payload.data.info.count,
                 charactersPages: action.payload.data.info.pages,
                 charactersNextPage: action.payload.data.info.next,
-                charactersPrevPage: action.payload.data.info.prev
+                charactersPrevPage: action.payload.data.info.prev,
+                charactersActualPage: action.payload.config.url
             }
         }
 

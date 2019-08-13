@@ -2,19 +2,21 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Container from '@material-ui/core/Container';
 import CharactersGridList from '../../components/characters/CharactersGridList';
-import { getCharactersAction } from './../../store/characters/actions';
-import { updateFavorites } from './../../store/users/actions'
+import { getCharactersAction, reloadAction } from './../../store/characters/actions';
+import { updateFavoritesAction } from './../../store/users/actions'
 
 const CharactersPage = props => {
     
-    const { characters, charactersPrevPage, charactersNextPage, getCharactersComponent, userComponent, activeUser  } = props;
+    const { characters, charactersPrevPage, charactersNextPage, getCharactersComponent, userComponent, activeUser, reloadCharacters  } = props;
     const prevPage = () => props.getCharactersComponent(charactersPrevPage);
     const nextPage = () => props.getCharactersComponent(charactersNextPage);
-    
+     
+
     const addFavorite = id => {
         const user = activeUser;
         user.favoriteCharacters.push(id+'');
         userComponent(user);
+        reloadCharacters();
     }
 
     const removeFavorite = id => {
@@ -23,12 +25,12 @@ const CharactersPage = props => {
             return characterId+'' !== id+'';
         });
         userComponent(user);
+        reloadCharacters();
     }
 
     useEffect(() => {
         getCharactersComponent();
-    },[getCharactersComponent, characters]);
-
+    },[getCharactersComponent]);
 
     return ( 
         <Container maxWidth="xl">
@@ -37,6 +39,7 @@ const CharactersPage = props => {
             <CharactersGridList characters={characters} addFavorite={addFavorite} removeFavorite={removeFavorite} activeUser={activeUser}/>
         </Container>
     )
+
 }
 
 const mapStateToProps = state => ({
@@ -54,7 +57,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     getCharactersComponent: payload => dispatch(getCharactersAction(payload)),
-    userComponent: payload => dispatch(updateFavorites(payload))
+    userComponent: payload => dispatch(updateFavoritesAction(payload)),
+    reloadCharacters: payload => dispatch(reloadAction(payload))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CharactersPage);

@@ -5,5 +5,8 @@ export const initialState = {
     putUserLoading: false,
     putUserError: false,
     postUserLoading: false,
-    postUserError: false
+    postUserError: false,
+    postUserMessage: '',
+    signUpLoading: false,
+    signUpError: false,
 }

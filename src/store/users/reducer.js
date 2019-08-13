@@ -22,22 +22,23 @@ export default function reducer(state = initialState, action) {
             }
         }
 
-        case POST_USER_INIT: { return { ...state, postUserLoading: true}}
+        case POST_USER_INIT: { return { ...state, signUpLoading: true}}
         case POST_USER_SUCCESS: {
             return {
                 ...state,
                 users: state.users.concat(action.payload),
-                characters: state.characters,
-                episodes: state.episodes,
-                postUserLoading: false
+                postUserMessage: 'Usuario creado correctamente',
+                signUpLoading: false,
+                signUpError: false
             }
         }
 
         case POST_USER_ERROR: {
             return {
                 ...state,
-                postUserLoading: false,
-                postUserError: true
+                postUserMessage: 'Error al crear usuario, por favor reintente',
+                signUpLoading: false,
+                signUpError: true
             }
         }
 
@@ -51,10 +52,6 @@ export default function reducer(state = initialState, action) {
                     }
                     return user;
                 }),
-                characters: state.characters.map(character => {
-                    return character;
-                }),
-                episodes: state.episodes,
                 putUserLoading: false
             }
         }

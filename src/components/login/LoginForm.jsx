@@ -10,17 +10,18 @@ const LoginForm = props => {
     const [ user, setUser ] = useState(new User());
     const [ redirect, setRedirect ] = useState(isLogged());
     const { activeUser, activeUserError, activeUserLoading, loginComponent } = props;
-    console.log(loginComponent);
-
-    useEffect(() => {
-        if(activeUser && isLogged() ) {
-            setRedirect(true);
-        }
-    }, [activeUser])
+    
+    console.log("recargaaaaaaaaaaaaaaaa -------------------", isLogged());
 
     if(redirect) {
+        return ( <Redirect to='/users' />)
+    }
 
-        return ( <Redirect from='/login' to='/users' />) 
+    if(isLogged()) {
+        setTimeout(() => {
+            console.log("redi")
+            window.location.reload(false);
+        }, 1000);
     }
 
     const doLogin = event => {
@@ -44,7 +45,6 @@ const LoginForm = props => {
 
             {activeUserLoading && <span>Cargando</span>}
             {activeUserError && <span>ERROR DE LOGIN</span> }
-            
         </form>
     );
 }

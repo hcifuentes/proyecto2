@@ -11,7 +11,7 @@ import Paper from '@material-ui/core/Paper';
 
 const EpisodesList = props => {
 
-    const { episodes } = props;
+    const { episodes, activeUser, addFavorite, removeFavorite } = props;
 
     return (
         <Paper>
@@ -25,7 +25,13 @@ const EpisodesList = props => {
                 </TableHead>
                 <TableBody>
                     {episodes.map((episode) => (
-                        <EpisodeRow key={episode.id} episode={episode} />
+                        <EpisodeRow 
+                            key={episode.id} 
+                            episode={episode} 
+                            activeUser={activeUser}
+                            addFavorite={addFavorite}
+                            removeFavorite={removeFavorite}
+                        />
                     ))}
                  </TableBody>
             </Table>

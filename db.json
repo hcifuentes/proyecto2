@@ -25,9 +25,17 @@
       "name": "Manolo",
       "email": "manolito@gmail.com",
       "favoriteEpisodes": [
-        "1",
-        "2",
-        "3"
+        "undefined",
+        "6",
+        "8",
+        "22",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
       ],
       "episodesWatched": [
         "1",
@@ -35,7 +43,17 @@
         "3"
       ],
       "favoriteCharacters": [
-        "4"
+        "8",
+        "7",
+        "18",
+        "5",
+        "21",
+        "41",
+        "22",
+        "42",
+        "4",
+        "undefined",
+        "2"
       ]
     },
     {
@@ -85,6 +103,94 @@
       "id": 4,
       "name": "",
       "email": "anita@gmail.com",
+      "favoriteEpisodes": [],
+      "episodesWatched": [],
+      "favoriteCharacters": []
+    },
+    {
+      "id": 5,
+      "name": "juan",
+      "email": "a@a.com",
+      "favoriteEpisodes": [],
+      "episodesWatched": [],
+      "favoriteCharacters": []
+    },
+    {
+      "id": 6,
+      "name": "EEEE",
+      "email": "T@T.COM",
+      "favoriteEpisodes": [],
+      "episodesWatched": [],
+      "favoriteCharacters": []
+    },
+    {
+      "id": 7,
+      "name": "EEEE",
+      "email": "T@T.COM333",
+      "favoriteEpisodes": [
+        "3",
+        "6",
+        "5",
+        "7"
+      ],
+      "episodesWatched": [],
+      "favoriteCharacters": [
+        "22",
+        "24"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "33333",
+      "email": "a2@a.com",
+      "favoriteEpisodes": [],
+      "episodesWatched": [],
+      "favoriteCharacters": []
+    },
+    {
+      "id": 9,
+      "name": "3333333",
+      "email": "333333",
+      "favoriteEpisodes": [],
+      "episodesWatched": [],
+      "favoriteCharacters": []
+    },
+    {
+      "id": 10,
+      "name": "33331111",
+      "email": "111111",
+      "favoriteEpisodes": [],
+      "episodesWatched": [],
+      "favoriteCharacters": []
+    },
+    {
+      "id": 11,
+      "name": "55555555",
+      "email": "5555555",
+      "favoriteEpisodes": [],
+      "episodesWatched": [],
+      "favoriteCharacters": []
+    },
+    {
+      "id": 12,
+      "name": "66666",
+      "email": "666666",
+      "favoriteEpisodes": [],
+      "episodesWatched": [],
+      "favoriteCharacters": []
+    },
+    {
+      "id": 13,
+      "name": "777777",
+      "email": "7777777777",
+      "favoriteEpisodes": [],
+      "episodesWatched": [],
+      "favoriteCharacters": []
+    },
+    {
+      "id": 14,
+      "name": "hcifuentes@waypoint.cl",
+      "email": "hcifuentes@waypoint.cl",
       "favoriteEpisodes": [],
       "episodesWatched": [],
       "favoriteCharacters": []
